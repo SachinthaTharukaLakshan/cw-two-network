@@ -1,0 +1,43 @@
+body {align-items: center;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.login, .order-options, .menu-items {
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.item {
+    margin: 10px 0;
+}
+
+.titel{align-items: center;
+    text-align: center;
+
+}
+
+
+.bottom-image {
+    display: block;
+    margin: 0 auto;
+}
