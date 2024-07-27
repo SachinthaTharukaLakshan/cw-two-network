@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOS Burgers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: bold;
+        }
+
+        header img {
+            width: 80px;
+            margin-left: 20px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .card {
+            border: 1px solid #000;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 0 0 10px 10px;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        .card button:hover {
+            background-color: #555;
+        }
+
+        .exit-button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .exit-button:hover {
+            background-color: #555;
+        }
+
+        .offer {
+            margin-top: 20px;
+        }
+
+        .offer img {
+            width: 100%;
+            height: auto;
+        }
+        .menu-section {
+            margin: 20px 0;
+        }
+        .menu-section img {
+            width: 1500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MOS Burgers</h1>
+            <img src="IMG/classic-cheese-burger-with-beef-cutlet-vegetables-onions-isolated-white-background.jpg" alt="Burger">
+        </header>
+        <div class="menu">
+            <div class="card">
+                <img src="IMG/01 SSS.png" alt="Family Combo 1">
+                <button>ADD</button>
+            </div>
+            <div class="card">
+                <img src="IMG/03 FDF.png" alt="Family Combo 2">
+                <button>ADD</button>
+            </div>
+            <div class="card">
+                <img src="IMG/03 GRG.png" alt="Family Combo 3">
+                <button>ADD</button>
+            </div>
+            <div class="card">
+                <img src="IMG/BK_King_Meal_Deal_Landing_06_274827cafd.jpg" alt="Burger">
+                <button>ADD</button>
+            </div>
+        </div>
+        <button class="exit-button">EXIT</button>
+        <div class="offer">
+            <img src="offer.png" alt="Offer">
+        </div>
+    </div>
+    <div class="menu-section">
+        <img src="IMG/BK_2_for_750_Landing_Page_b59ea98663.jpg" alt="Menu">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.card button');
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    alert('Item added to cart!');
+                });
+            });
+
+            const exitButton = document.querySelector('.exit-button');
+            exitButton.addEventListener('click', () => {
+                alert('Exiting...');
+            });
+        });
+    </script>
+</body>
+</html>
