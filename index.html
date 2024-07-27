@@ -120,5 +120,17 @@
     <div class="additional-section">
         <img src="IMG/Premium_01_59563a1b43.png" alt="Additional Image" class="additional-image">
     </div>
+
+    <script>
+        
+document.querySelector('.login-box button').addEventListener('click', function() {
+  var idNumber = document.querySelector('.login-box input').value;
+  if (idNumber !== '') {
+    window.location.href = 'home.html'; 
+  } else {
+    alert('කරුණාකර ඔබගේ අයිඩි අංකය ඇතුළත් කරන්න');
+  }
+});
+    </script>
 </body>
 </html>
