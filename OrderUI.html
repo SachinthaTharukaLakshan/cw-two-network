@@ -176,16 +176,22 @@
 
         function finalizeItems() {
             const table = document.getElementById('itemTable');
-            const checkboxes = table.querySelectorAll('input[type="checkbox"]:checked');
+            const rows = table.querySelectorAll('tr');
+            let total = 0;
 
-            checkboxes.forEach(checkbox => {
-                checkbox.closest('tr').style.backgroundColor = '#f0f0f0';
-                checkbox.checked = false;
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                if (cells.length > 0) {
+                    total += parseFloat(cells[3].textContent);
+                }
             });
+
+            alert('ඔයා ගෙවිය යුතු මුලු මුදල: ' + total + ', ගෙවීම දැන් සිදුකරන්න');
+            window.location.href = 'home.html';
         }
 
         function exitPage() {
-            window.location.href = 'index.html'; 
+            window.location.href = 'home.html';
         }
 
         document.addEventListener('DOMContentLoaded', loadItems);
