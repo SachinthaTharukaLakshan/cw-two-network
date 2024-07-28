@@ -61,7 +61,7 @@
     <div class="header">MOS Burgers</div>
     <img src="IMG/classic-cheese-burger-with-beef-cutlet-vegetables-onions-isolated-white-background.jpg" alt="Main Burger" class="main-image">
     <div class="buttons">
-        <button>Place Order</button>
+        <button onclick="placeOrder()">Place Order</button>
         <button>View Order</button>
         <button>Update Order</button>
         <button>Search</button>
@@ -69,6 +69,10 @@
     <div class="menu-section">
         <img src="IMG/Menu_Banner_1645x813_1_981dbf771a.png" alt="Menu">
     </div>
-   
+    <script>
+        function placeOrder() {
+            window.location.href = 'addbun.html';
+        }
+    </script>
 </body>
 </html>
