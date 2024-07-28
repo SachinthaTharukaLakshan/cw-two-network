@@ -94,9 +94,11 @@
             width: 100%;
             height: auto;
         }
+        
         .menu-section {
             margin: 20px 0;
         }
+        
         .menu-section img {
             width: 1500px;
         }
@@ -111,19 +113,19 @@
         <div class="menu">
             <div class="card">
                 <img src="IMG/01 SSS.png" alt="Family Combo 1">
-                <button>ADD</button>
+                <button onclick="addItemAndRedirect('Family Combo 1', 125, 450)">ADD</button>
             </div>
             <div class="card">
                 <img src="IMG/03 FDF.png" alt="Family Combo 2">
-                <button>ADD</button>
+                <button onclick="addItemAndRedirect('Family Combo 2', 150, 500)">ADD</button>
             </div>
             <div class="card">
                 <img src="IMG/03 GRG.png" alt="Family Combo 3">
-                <button>ADD</button>
+                <button onclick="addItemAndRedirect('Family Combo 3', 175, 550)">ADD</button>
             </div>
             <div class="card">
                 <img src="IMG/BK_King_Meal_Deal_Landing_06_274827cafd.jpg" alt="Burger">
-                <button>ADD</button>
+                <button onclick="addItemAndRedirect('Burger', 200, 600)">ADD</button>
             </div>
         </div>
         <button class="exit-button">EXIT</button>
@@ -136,17 +138,17 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const buttons = document.querySelectorAll('.card button');
-            buttons.forEach(button => {
-                button.addEventListener('click', () => {
-                    alert('Item added to cart!');
-                });
-            });
+        function addItemAndRedirect(name, col2, total) {
+            const items = JSON.parse(localStorage.getItem('items')) || [];
+            items.push({ name, col2, total });
+            localStorage.setItem('items', JSON.stringify(items));
+            window.location.href = 'OrderUI.html';
+        }
 
+        document.addEventListener('DOMContentLoaded', () => {
             const exitButton = document.querySelector('.exit-button');
             exitButton.addEventListener('click', () => {
-                alert('Exiting...');
+                window.location.href = 'index.html'; 
             });
         });
     </script>

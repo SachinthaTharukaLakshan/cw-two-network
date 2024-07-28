@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOS Burgers</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+
+        .container {
+            width: 90%; /* Adjust the width as needed */
+            max-width: 1500px; /* Maximum width to ensure responsiveness */
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .search-container input {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+            flex: 1; /* Allow the input to expand */
+            max-width: 300px; /* Maximum width for the input */
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .burger-image {
+            width: 300px; /* Adjust the width to make the image smaller */
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .exit-button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MOS Burgers</h1>
+        <div class="search-container">
+            <input type="text" placeholder="Placeholder">
+            <button>Search</button>
+        </div>
+        <img src="IMG/classic-cheese-burger-with-beef-cutlet-vegetables-onions-isolated-white-background.jpg" alt="Burger Image" class="burger-image">
+        <button class="exit-button">EXIT</button>
+    </div>
+</body>
+</html>
