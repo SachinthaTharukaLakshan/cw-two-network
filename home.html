@@ -63,7 +63,7 @@
     <div class="buttons">
         <button onclick="placeOrder()">Place Order</button>
         <button>View Order</button>
-        <button>Update Order</button>
+        <button onclick="UpdateOrder()">Update Order</button>
         <button>Search</button>
     </div>
     <div class="menu-section">
@@ -71,6 +71,9 @@
     </div>
     <script>
         function placeOrder() {
+            window.location.href = 'next.html';
+        }
+        function UpdateOrder() {
             window.location.href = 'addbun.html';
         }
     </script>
