@@ -38,14 +38,14 @@
             margin-bottom: 20px;
         }
 
-        .search-container input {
+        .search-container select {
             padding: 10px;
             font-size: 1em;
             border: 1px solid #ccc;
             border-radius: 5px;
             margin-right: 10px;
-            flex: 1; /* Allow the input to expand */
-            max-width: 300px; /* Maximum width for the input */
+            flex: 1; /* Allow the select to expand */
+            max-width: 300px; /* Maximum width for the select */
         }
 
         .search-container button {
@@ -64,10 +64,34 @@
             margin-bottom: 20px;
         }
 
-        .exit-button {
+        .exit-button, .add-cashier-button {
             padding: 10px 20px;
             font-size: 1em;
             background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px; /* Add margin between buttons */
+        }
+
+        .cashier-list {
+            margin-top: 20px;
+        }
+
+        .cashier-item {
+            padding: 10px;
+            background-color: #e0e0e0;
+            margin: 5px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .delete-button {
+            padding: 5px 10px;
+            background-color: red;
             color: white;
             border: none;
             border-radius: 5px;
@@ -79,11 +103,75 @@
     <div class="container">
         <h1>MOS Burgers</h1>
         <div class="search-container">
-            <input type="text" placeholder="Placeholder">
-            <button>Search</button>
+            <select id="cashier-select">
+                <option value="">Select Cashier</option>
+                <!-- Cashier options will be populated here -->
+            </select>
+            <button onclick="selectCashier()">Select Viwe Cashier</button>
         </div>
         <img src="IMG/classic-cheese-burger-with-beef-cutlet-vegetables-onions-isolated-white-background.jpg" alt="Burger Image" class="burger-image">
-        <button class="exit-button">EXIT</button>
+        <button class="add-cashier-button" onclick="redirectToAddCashierPage()">Add Cashier</button>
+        <button class="exit-button" onclick="redirectToHomePage()">EXIT</button>
+        <div class="cashier-list" id="cashier-list">
+            <!-- Cashier list will be populated here -->
+        </div>
     </div>
+
+    <script>
+        // Load cashiers from local storage and populate the select and list
+        function loadCashiers() {
+            const cashierSelect = document.getElementById('cashier-select');
+            const cashierList = document.getElementById('cashier-list');
+            const cashiers = JSON.parse(localStorage.getItem('cashiers')) || [];
+            cashierSelect.innerHTML = '<option value="">Select Cashier</option>';
+            cashierList.innerHTML = '';
+            cashiers.forEach((cashier, index) => {
+                // Add option to select
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${cashier.name} - ${cashier.id}`;
+                cashierSelect.appendChild(option);
+
+                // Add cashier to list
+                const cashierItem = document.createElement('div');
+                cashierItem.classList.add('cashier-item');
+                cashierItem.innerHTML = `
+                    <span>${cashier.name} - ${cashier.id} - ${cashier.village} - ${cashier.age}</span>
+                    <button class="delete-button" onclick="deleteCashier(${index})">Delete</button>
+                `;
+                cashierList.appendChild(cashierItem);
+            });
+        }
+
+        // Select cashier based on the option chosen in the select dropdown
+        function selectCashier() {
+            const cashierSelect = document.getElementById('cashier-select');
+            const selectedIndex = cashierSelect.value;
+            if (selectedIndex !== "") {
+                alert(`Selected Cashier: ${cashierSelect.options[cashierSelect.selectedIndex].text}`);
+            } else {
+                alert('Please select a cashier.');
+            }
+        }
+
+        // Delete a cashier from the list
+        function deleteCashier(index) {
+            let cashiers = JSON.parse(localStorage.getItem('cashiers')) || [];
+            cashiers.splice(index, 1);
+            localStorage.setItem('cashiers', JSON.stringify(cashiers));
+            location.reload(); // Reload the page to update the list
+        }
+
+        function redirectToAddCashierPage() {
+            window.location.href = 'addcashier.html'; // Change this to the actual path of your 'Add Cashier' page
+        }
+
+        function redirectToHomePage() {
+            window.location.href = 'home.html'; // Change this to the actual path of your 'Home' page
+        }
+
+        // Load cashiers when the page loads
+        window.onload = loadCashiers;
+    </script>
 </body>
 </html>

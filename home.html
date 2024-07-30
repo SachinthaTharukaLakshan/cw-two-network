@@ -61,20 +61,27 @@
     <div class="header">MOS Burgers</div>
     <img src="IMG/classic-cheese-burger-with-beef-cutlet-vegetables-onions-isolated-white-background.jpg" alt="Main Burger" class="main-image">
     <div class="buttons">
-        <button onclick="placeOrder()">Place Order</button>
-        <button>View Order</button>
+        <button onclick="AddNewItem()">Add New Item</button>
+        <button onclick="ViewOrder()">View Order</button>
         <button onclick="UpdateOrder()">Update Order</button>
-        <button>Search</button>
+        <button onclick="CashierAddViweDelete()">Cashier: Add,Viwe,Delete</button>
     </div>
     <div class="menu-section">
         <img src="IMG/Menu_Banner_1645x813_1_981dbf771a.png" alt="Menu">
     </div>
     <script>
-        function placeOrder() {
+
+        function AddNewItem() {
+            window.location.href = 'additem.html';
+        }
+        function ViewOrder() {
+            window.location.href = 'addbun.html';
+        }
+        function CashierAddViweDelete() {
             window.location.href = 'next.html';
         }
         function UpdateOrder() {
-            window.location.href = 'addbun.html';
+            window.location.href = 'OrderUI.html';
         }
     </script>
 </body>

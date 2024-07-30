@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Cashier</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Cashier</h1>
+        <form id="cashier-form">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="text" id="id" placeholder="ID" required>
+            <input type="text" id="village" placeholder="Village" required>
+            <input type="number" id="age" placeholder="Age" required>
+            <button type="submit">Submit</button>
+        </form>
+        <button class="back-button" onclick="goBack()">Back to Previous Page</button>
+    </div>
+
+    <script>
+        // Function to handle form submission
+        document.getElementById('cashier-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const id = document.getElementById('id').value;
+            const village = document.getElementById('village').value;
+            const age = document.getElementById('age').value;
+
+            // Save cashier data to local storage or send it to a server
+            let cashiers = JSON.parse(localStorage.getItem('cashiers')) || [];
+            cashiers.push({ name, id, village, age });
+            localStorage.setItem('cashiers', JSON.stringify(cashiers));
+
+            // Optionally redirect back to the previous page or give feedback
+            alert('Cashier added successfully!');
+            window.history.back(); // Go back to the previous page
+        });
+
+        // Function to go back to the previous page
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
