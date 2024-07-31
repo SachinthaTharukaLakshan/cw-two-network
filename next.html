@@ -64,15 +64,26 @@
             margin-bottom: 20px;
         }
 
-        .exit-button, .add-cashier-button {
+        .save-button, .exit-button, .add-cashier-button {
             padding: 10px 20px;
             font-size: 1em;
-            background-color: black;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             margin: 5px;
+        }
+
+        .add-cashier-button {
+            background-color: green;
+        }
+
+        .save-button {
+            background-color: red;
+        }
+
+        .exit-button {
+            background-color: black;
         }
 
         .cashier-list {
@@ -110,6 +121,7 @@
         </div>
         <img src="IMG/classic-cheese-burger-with-beef-cutlet-vegetables-onions-isolated-white-background.jpg" alt="Burger Image" class="burger-image">
         <button class="add-cashier-button" onclick="redirectToAddCashierPage()">Add Cashier</button>
+        <button class="save-button" onclick="saveCashiers()">Save</button>
         <button class="exit-button" onclick="redirectToHomePage()">EXIT</button>
         <div class="cashier-list" id="cashier-list">
         </div>
@@ -158,6 +170,14 @@
             cashiers.splice(index, 1);
             localStorage.setItem('cashiers', JSON.stringify(cashiers));
             loadCashiers(); // Reload the cashier list
+        }
+
+        // Save the cashier list (re-save all items in local storage to "fix" them)
+        function saveCashiers() {
+            const cashiers = JSON.parse(localStorage.getItem('cashiers')) || [];
+            localStorage.setItem('cashiers', JSON.stringify(cashiers));
+            loadCashiers(); // Reload the cashier list
+            alert('Cashiers saved successfully!');
         }
 
         // Add cashier to local storage
